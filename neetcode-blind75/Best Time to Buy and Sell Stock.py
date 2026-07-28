@@ -1,13 +1,12 @@
 class Solution:
     def maxProfit(self, prices):
-        length = len(prices)
         buy = prices[0]
         sell = prices[0]
         profit = sell - buy
 
-        for i in range(length-1):
-            buy = min(buy,prices[i+1])
-            sell = prices[i+1]
+        for price in prices[1:]:
+            buy = min(buy,price)
+            sell = price
             profit = max(profit,sell - buy)
 
         return profit
